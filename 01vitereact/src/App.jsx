@@ -1,11 +1,12 @@
-function App() {
-  const [count, setCount] = useState(0)
+import Chai from './Chai'
 
+function App() {
+  const username = "chai aur code"
   return (
-    <div>
+    <>
+      <Chai/>
       <h1>Deepika Sahu | vitereactseries</h1>
-    </div>
+    </>
   )
 }
-
 export default App
