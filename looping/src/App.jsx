@@ -1,35 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+    const [colors, setColors] =
+        useState(['red', 'green', 'blue']);
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    const approach2Fn = () => {
+        const newColor = prompt('Enter a color:');
+        if (newColor) {
+            setColors([...colors, newColor]);
+        }
+    };
+    const colorItems = [];
+    for (let i = 0; i < colors.length; i++) {
+        colorItems.push(
+            <div key={i}
+                style={{
+                    backgroundColor: colors[i],
+                    padding: '10px', margin: '5px',
+                    borderRadius: '2px', width: '100px'
+                }}>
+                {colors[i]}
+            </div>
+        );
+    }
+    return (
+        <div>
+            <h1 style={{ color: 'green' }}>
+            </h1>
+            <h3>Welcome to my WORLD</h3>
+            <div>{colorItems}</div>
+            <button onClick={approach2Fn}>
+                Add Color
+            </button>
+        </div>
+    );
+};
 
-export default App
+export default App;
